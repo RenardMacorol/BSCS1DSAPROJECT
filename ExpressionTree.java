@@ -92,6 +92,7 @@ public class ExpressionTree {
         System.out.println("Expression Tree has been created");
         Node fix = tree();
         traverse(fix);
+        System.out.println("Double check lang");
        
            
     }
