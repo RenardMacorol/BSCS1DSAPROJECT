@@ -9,7 +9,6 @@ public class Main{
         ExpressionTree et = new ExpressionTree(input);
         et.Interface(); */
         Testset();
-        System.out.println("UNLI WINGS");
         
     }
     public static void Testset(){
