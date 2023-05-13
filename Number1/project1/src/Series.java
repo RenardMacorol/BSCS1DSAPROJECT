@@ -8,7 +8,7 @@ public class Series {
       4.) Close the Scanner object sc.
       5.) Loop through each number i from 1 to x:
          Call the function recursive(i) and print the return value followed by a space.
-          Function fibonacci(x):
+          Function recursive(x):
             a.) If x is 1 or 2, return 1.
             b.) Otherwise, return the sum of fibonacci(x - 1) and fibonacci(x - 2). 
       6.) End.

@@ -4,7 +4,6 @@ class Node{
     char character;
     Node left=null;
     Node right=null;
-    int number=0;
     public Node(char character){
         this.character=character;
         left=right=null;
@@ -21,11 +20,16 @@ public class ExpressionTree {
     String input;
     int decision=0;
     char data;
-    String storeinput;
-    Node temp,temp1,temp2;
+    Node temp,right,left;
    
     ExpressionTree(String input){
         //contructor need to refactorize this
+        setInput(input);
+    }
+    public String getInput(){
+        return input;
+    }
+    public void setInput(String input){
         this.input=input;
     }
     //check if is operator
@@ -57,7 +61,24 @@ public class ExpressionTree {
         System.out.print(root.character);
         traverse(root.right);
     }
-    Node tree(){
+    void prefix(Node root){
+        if(root==null){
+            return;
+        }
+        System.out.print(root.character);
+        prefix(root.left);
+        prefix(root.right);
+    }
+    void postfix(Node root){
+        if(root==null){
+            return;
+        }
+        
+        postfix(root.left);
+        postfix(root.right);
+        System.out.print(root.character);
+    }
+    Node forPostfix(){
         
         Stack<Node> operand = new Stack<>();
         for(int i=0;i<input.length();i++){
@@ -73,11 +94,11 @@ public class ExpressionTree {
                 //operator push 
                 temp= new Node(input.charAt(i));
 
-                temp1=operand.pop();
-                temp2=operand.pop();
+                right=operand.pop();
+                left=operand.pop();
 
-                temp.left=temp2;
-                temp.right=temp1;
+                temp.left=left;
+                temp.right=right;
 
                 operand.push(temp);
             }
@@ -87,13 +108,21 @@ public class ExpressionTree {
         return temp;
     }
     
+    
     public  void Interface() {
         Scanner s = new Scanner(System.in);
-        System.out.println("Expression Tree has been created");
-        Node fix = tree();
+        Node fix = forPostfix();  
         traverse(fix);
-        System.out.println("Double check lang");
-       
-           
+        System.out.println();
+        prefix(fix);
+        System.out.println();
+        postfix(fix);
+        System.out.println();
+               
+            
     }
+
+    
+    
+
 }
