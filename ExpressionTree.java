@@ -31,7 +31,7 @@ public class ExpressionTree {
     }
     public String getInput(){
         ///try  nyo to gamitin
-        
+            
         return input;
     }
     public void setInput(String input){
