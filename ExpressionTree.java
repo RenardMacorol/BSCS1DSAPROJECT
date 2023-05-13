@@ -118,8 +118,6 @@ public class ExpressionTree {
         System.out.println();
         postfix(fix);
         System.out.println();
-               
-            
     }
 
     

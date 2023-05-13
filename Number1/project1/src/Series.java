@@ -10,7 +10,7 @@ public class Series {
          Call the function recursive(i) and print the return value followed by a space.
           Function recursive(x):
             a.) If x is 1 or 2, return 1.
-            b.) Otherwise, return the sum of fibonacci(x - 1) and fibonacci(x - 2). 
+            b.) Otherwise, return the sum of recursive(x - 1) and recursive(x - 2). 
       6.) End.
       */
    public static void createSeries(int input){
