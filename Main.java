@@ -13,9 +13,10 @@ public class Main{
         
     }
     public static void Testset(){
-        String[] arr={"ABC*+D/"};
+        String[] arr={"ABC*+D/","A+B*C/D","+-A*BC"};
         for(int i=0;i<arr.length;i++){
             String input=arr[i];
+
             ExpressionTree et = new ExpressionTree(input);
             et.Interface();
         }

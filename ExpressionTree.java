@@ -107,10 +107,12 @@ public class ExpressionTree {
         temp=operand.pop();
         return temp;
     }
-    
+
+
     
     public  void Interface() {
         Scanner s = new Scanner(System.in);
+        
         Node fix = forPostfix();  
         traverse(fix);
         System.out.println();
