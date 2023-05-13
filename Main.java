@@ -10,8 +10,6 @@ public class Main{
         et.Interface(); */
         Testset();
         System.out.println("UNLI WINGS");
-        System.out.println("why unli wings?");
-        //testingUnliWings
         
     }
     public static void Testset(){
