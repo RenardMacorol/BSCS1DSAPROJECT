@@ -82,7 +82,7 @@ public class ExpressionTree {
         
         Stack<Node> operand = new Stack<>();
         for(int i=0;i<input.length();i++){
-            if(input.charAt(i)=='('&&input.charAt(i)==')'){
+            if(input.charAt(i)=='('|| input.charAt(i)==')'){
                 temp=null;
            
             }
