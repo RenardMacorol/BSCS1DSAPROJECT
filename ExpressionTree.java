@@ -11,9 +11,12 @@ class Node{
    
 }
 /*TODO reffeer on this message chariz hahaha
- * 1.Gumagwa ng Postfix and Infix changer(Juls and aira)
- * 2.Expression changer(Pia Thoby tonny toby)
- */
+ * 1.Gumagwa ng Postfix and Infix changer//Done na ata to
+ * eto nlang
+ 
+ * 2.Expression changer 
+ * 3. Evaulate the binary 1+2+3=5 ganyan
+ * */
 
 public class ExpressionTree {
     
@@ -27,6 +30,8 @@ public class ExpressionTree {
         setInput(input);
     }
     public String getInput(){
+        ///try  nyo to gamitin
+        
         return input;
     }
     public void setInput(String input){
