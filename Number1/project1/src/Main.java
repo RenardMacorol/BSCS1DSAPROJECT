@@ -36,6 +36,7 @@ public class Main {
                     System.out.print("Enter the limit for the series: ");
                     input= s.nextInt();
                     Series.createSeries(input);
+                    System.out.println();
                     break;
                 case 4:
                     System.out.print("Display input: ");
