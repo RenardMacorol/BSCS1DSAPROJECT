@@ -117,22 +117,16 @@ public class ExpressionTree {
     
     public  void Interface() {
         Scanner s = new Scanner(System.in);
-        System.out.println("Enter arithmetic expression: ");
-        String infix = s.nextLine();
-        
-        //Node prefix = forPrefix();
-        Node postfix = forPostfix();
-        
 
 
 
-        /*Node fix = forPostfix();  
+        Node fix = forPostfix();  
         traverse(fix);
         System.out.println();
         prefix(fix);
         System.out.println();
         postfix(fix);
-        System.out.println();*/
+        System.out.println();
     }
 
     
