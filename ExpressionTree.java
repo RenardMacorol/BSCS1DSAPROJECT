@@ -88,7 +88,7 @@ public class ExpressionTree {
         Stack<Node> operand = new Stack<>();
         for(int i=0;i<input.length();i++){
             if(input.charAt(i)=='('|| input.charAt(i)==')'){
-                temp=null;
+                //temp=null;
            
             }
             if(!isOperator(input.charAt(i))){
@@ -117,14 +117,22 @@ public class ExpressionTree {
     
     public  void Interface() {
         Scanner s = new Scanner(System.in);
+        System.out.println("Enter arithmetic expression: ");
+        String infix = s.nextLine();
         
-        Node fix = forPostfix();  
+        //Node prefix = forPrefix();
+        Node postfix = forPostfix();
+        
+
+
+
+        /*Node fix = forPostfix();  
         traverse(fix);
         System.out.println();
         prefix(fix);
         System.out.println();
         postfix(fix);
-        System.out.println();
+        System.out.println();*/
     }
 
     
