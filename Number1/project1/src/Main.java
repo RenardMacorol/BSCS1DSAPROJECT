@@ -19,7 +19,7 @@ public class Main {
             System.out.println("[1] Determine if a year is LeapYear or Not");
             System.out.println("[2] Height Comparison of 3 person");
             System.out.println("[3] Diplay the Series");
-            System.out.println("[4]Display a diamond of asterisk");
+            System.out.println("[4] Display a diamond of asterisk");
             options = s.nextInt();
             switch (options) {
                 case 1:
