@@ -27,16 +27,11 @@ public class ExpressionTree {
    
     ExpressionTree(String input){
         //contructor need to refactorize this
-        setInput(input);
-    }
-    public String getInput(){
-        ///try  nyo to gamitin
-            
-        return input;
-    }
-    public void setInput(String input){
         this.input=input;
+        
     }
+
+    
     //check if is operator
     boolean isOperator(char op){
         if(op=='^'||op=='*'||op=='/'||op=='+'||op=='-' ){
@@ -58,6 +53,10 @@ public class ExpressionTree {
         }
         return 0;
     }
+  
+       
+    
+
     void traverse(Node root){
         if(root==null){
             return;
@@ -65,6 +64,22 @@ public class ExpressionTree {
         traverse(root.left);
         System.out.print(root.character);
         traverse(root.right);
+    }
+    void modefiedTravers(Node root){
+        if(root==null){
+            return;
+        }
+        if(root.left==null){
+        traverse(root.left);
+        }
+
+        System.out.println();
+        System.out.print(root.character);
+        System.out.println();
+
+        if(root.right==null){
+        traverse(root.right);
+        }
     }
     void prefix(Node root){
         if(root==null){
@@ -83,7 +98,7 @@ public class ExpressionTree {
         postfix(root.right);
         System.out.print(root.character);
     }
-    Node forPostfix(){
+    Node Expression(){
         
         Stack<Node> operand = new Stack<>();
         for(int i=0;i<input.length();i++){
@@ -115,9 +130,8 @@ public class ExpressionTree {
 
     
 
-    private boolean checkInput(){
+    public boolean checkInput(String input){
         if(!isOperator(input.charAt(0))&&isOperator(input.charAt(1))){
-            System.out.println("The output is already a infix");
             return false;
         }
         return true;
@@ -127,17 +141,26 @@ public class ExpressionTree {
     
     public  void Interface() {
         Scanner s = new Scanner(System.in);
+        if(!checkInput(input)){
+            System.out.println("Infix");
+        }
         
-        Node fix = forPostfix();  
+        Node fix = Expression();  
+        System.out.println("Expression Tree: ");
         traverse(fix);
+        //modefiedTravers(fix);// ano to yung want ni aira kaso di ko magawa hahah
         System.out.println();
-        prefix(root);
+        System.out.print("Prefix: ");
+        prefix(fix);
         System.out.println();
-        postfix(root);
+        System.out.print("Postfix: ");
+        postfix(fix);
         System.out.println();
+        
+        
     }
-
-    
-    
-
 }
+
+   
+
+
