@@ -113,17 +113,35 @@ public class ExpressionTree {
         return temp;
     }
 
+    
+
+    private boolean checkInput(){
+        if(!isOperator(input.charAt(0))&&isOperator(input.charAt(1))){
+            System.out.println("The output is already a infix");
+            return false;
+        }
+        return true;
+    }
+
 
     
     public  void Interface() {
         Scanner s = new Scanner(System.in);
         
-        Node fix = forPostfix();  
-        traverse(fix);
+        if(checkInput()){
+            Node fix = forPostfix(); 
+            childInterface(fix);
+            
+        }
+        
+       
+    }
+    public void childInterface(Node root){
+        traverse(root);
         System.out.println();
-        prefix(fix);
+        prefix(root);
         System.out.println();
-        postfix(fix);
+        postfix(root);
         System.out.println();
     }
 
