@@ -3,9 +3,9 @@ package Number1.project1.src;
 
 public class CompareHeight {
     public static void compare(int person1,int person2, int person3) {
-        if(person1>person2) {
+        if(person1>person2||person1>person3) {
 			System.out.println("The first person is taller");
-		}else if (person1 < person2) {
+		}else if (person2) {
 			System.out.println("The second person is taller");
 		}else {
 			System.out.println("Both of the person have the same height");
