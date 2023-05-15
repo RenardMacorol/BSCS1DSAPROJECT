@@ -88,7 +88,7 @@ public class ExpressionTree {
         Stack<Node> operand = new Stack<>();
         for(int i=0;i<input.length();i++){
             if(input.charAt(i)=='('|| input.charAt(i)==')'){
-                temp=null;
+                //temp=null;
            
             }
             if(!isOperator(input.charAt(i))){
@@ -128,16 +128,8 @@ public class ExpressionTree {
     public  void Interface() {
         Scanner s = new Scanner(System.in);
         
-        if(checkInput()){
-            Node fix = forPostfix(); 
-            childInterface(fix);
-            
-        }
-        
-       
-    }
-    public void childInterface(Node root){
-        traverse(root);
+        Node fix = forPostfix();  
+        traverse(fix);
         System.out.println();
         prefix(root);
         System.out.println();
