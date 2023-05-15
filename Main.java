@@ -13,7 +13,7 @@ public class Main{
         
     }
     public static void Testset(){
-        String[] arr={"ABC*+D/","A+B*C/D","+-A*BC"};
+        String[] arr={"ABC*+D/","+-A*BC","A+B*C/D "};
         for(int i=0;i<arr.length;i++){
             String input=arr[i];
 
