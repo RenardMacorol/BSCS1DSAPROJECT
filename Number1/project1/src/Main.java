@@ -29,8 +29,16 @@ public class Main {
                     LeapYear.Leap(input);
                     break;
                 case 2:
-                    CompareHeight ch = new CompareHeight();
-                    // height comparison
+                    // print and enter the height of the first person
+		            System.out.println("Enter the height of the first person: ");
+		            //assume that we will use centimeters or feet that's why we use int
+		            int height1= s.nextInt();
+		            //the second person
+		            System.out.println("Enter the height of the second person: ");
+		            int height2= s.nextInt();
+                    System.out.println("Enter the height of the third person: ");
+                    int height3= s.nextInt();
+                    CompareHeight.compare(height1, height2, height3);
                     break;
                 case 3:
                     System.out.print("Enter the limit for the series: ");
