@@ -11,13 +11,13 @@ public class CompareHeight {
 			System.out.println("The third person is taller");
 		}
 
-		if(person1==person2){
+		if(person1==person2&&person2==person1){
 			System.out.println("Person 1 and Person 2 are the same");
 		}
-		else if (person1==person3){
+		else if (person1==person3&&person3==person1){
 			System.out.println("Person 1 and Person 3 are the same");
 		}
-		else if (person2==person3){
+		else if (person2==person3&&person3==person2){
 			System.out.println("Person 1 and Person 3 are the same");
 		}
     }
