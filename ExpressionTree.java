@@ -1,7 +1,6 @@
 import java.util.Scanner;
 import java.util.Stack;
 
-import javax.xml.stream.events.Characters;
 class Node{
     char character;
     Node left=null;
@@ -44,8 +43,7 @@ public class ExpressionTree {
         pemdas['^'] = 3;
         pemdas[')'] = 0;
     }
-    
-  
+
     void traverse(Node root){
         if(root==null){
             return;
@@ -118,6 +116,7 @@ public class ExpressionTree {
         System.out.print("Postfix: ");
         postfix(fix);
         System.out.println();
+        System.out.println("Tree Value+ "+evaluate(fix,fix.character));
         
         
     }
@@ -128,7 +127,7 @@ public class ExpressionTree {
             if(input.charAt(i)=='('){
                ch.add(input.charAt(i));
             }
-            else if(Character.isAlphabetic(input.charAt(i))){
+            else if(Character.isAlphabetic(input.charAt(i))||Character.isDigit(input.charAt(i))){
                 temp= new Node(input.charAt(i));
                 iN.add(temp);
             }
@@ -188,6 +187,10 @@ public class ExpressionTree {
         }
         return false;
     }
+    
+
+
+
 }
 
    
