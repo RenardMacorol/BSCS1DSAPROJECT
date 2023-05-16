@@ -28,7 +28,33 @@ public class Main{
             
             
         }
-       
+        
+        //Ano 'to, syntax to enter new user input-pia
+        //Uncomment this, then comment the above syntax-pia
+        
+        /*UserInterface();
+        while(1!=0){
+        	System.out.println();
+            System.out.println("Would you like to enter new input (yes or no): ");
+            String update =s.nextLine();
+            System.out.println();
+          
+            if(update.equalsIgnoreCase("yes")) {
+                UserInterface();
+                }
+            if(update.equalsIgnoreCase("no")){
+                System.out.println("System terminated.");
+        	    }
+            }
+        }
+    public static void UserInterface() {
+    	Scanner s = new Scanner(System.in);
+        System.out.println("Enter the Input: ");
+        String input =s.nextLine();
+        ExpressionTree et = new ExpressionTree(input);
+        et.Interface();
+        }*/
+  
     }
     
     
