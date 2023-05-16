@@ -72,6 +72,37 @@ public class ExpressionTree {
         System.out.print(root.character);
     }
 
+    /*public double evaluate(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        
+        // If the node is a leaf node (operand), return its value as a double
+        if (root.left == null && root.right == null) {
+            return Double.parseDouble(Character.toString(root.character));
+        }
+        
+        // Recursively evaluate the left and right subtrees
+        double leftValue = evaluate(root.left);
+        double rightValue = evaluate(root.right);
+        
+        // Perform the corresponding arithmetic operation based on the operator
+        switch (root.character) {
+            case '+':
+                return leftValue + rightValue;
+            case '-':
+                return leftValue - rightValue;
+            case '*':
+                return leftValue * rightValue;
+            case '/':
+                return leftValue / rightValue;
+            case '^':
+                return Math.pow(leftValue, rightValue);
+            default:
+                return 0;
+        }
+    }*/
+
     /*Node Expression(){
         
         Stack<Node> operand = new Stack<>();
