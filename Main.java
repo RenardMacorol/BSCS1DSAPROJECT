@@ -18,8 +18,9 @@ public class Main{
         //"((a^b^(c/d/e-f)^(x*y-m*n)))" eto yung gumana
         //Normal test set at change variable test set "(A+B*C/D)""
         //evaluate test set "(3+4*5/1)"
+        //testing "unli wings"
         
-        String[] arr={"(3+4*5/1)"};
+        String[] arr={"((5^2^(8/12/8-2)^(3*6-9*1)))"};
         for(int i=0;i<arr.length;i++){
             String input=arr[i];
             ExpressionTree et = new ExpressionTree(input);
