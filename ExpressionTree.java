@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.Stack;
+
+import javax.xml.stream.events.Characters;
 class Node{
     char character;
     Node left=null;
@@ -24,33 +26,25 @@ public class ExpressionTree {
     int decision=0;
     char data;
     Node temp,right,left;
+    Stack<Node> iN = new Stack<>();
+    Stack<Character> ch = new Stack<>();
+    int[] pemdas = new int[100];
+       
+    
    
     ExpressionTree(String input){
         //contructor need to refactorize this
         this.input=input;
+       
         
     }
-    //check if is operator
-    boolean isOperator(char op){
-        if(op=='^'||op=='*'||op=='/'||op=='+'||op=='-' ){
-            return true;
-        }else
-        return false; 
-      
+    void pemdas(){
+        pemdas['+'] = pemdas['-'] = 1;
+        pemdas['/'] = pemdas['*'] = 2;
+        pemdas['^'] = 3;
+        pemdas[')'] = 0;
     }
-    //check the if the char is operator
-    int pemdas(char op){
-        if(op=='-'|| op=='+'){
-            return 1;
-        }
-        else if (op=='*'||op=='/'){
-            return 2;
-        }
-        else if (op=='^'){
-            return 3;
-        }
-        return 0;
-    }
+    
   
     void traverse(Node root){
         if(root==null){
@@ -59,23 +53,6 @@ public class ExpressionTree {
         traverse(root.left);
         System.out.print(root.character);
         traverse(root.right);
-    }
-
-    void modefiedTravers(Node root){
-        if(root==null){
-            return;
-        }
-        if(root.left==null){
-        traverse(root.left);
-        }
-
-        System.out.println();
-        System.out.print(root.character);
-        System.out.println();
-
-        if(root.right==null){
-        traverse(root.right);
-        }
     }
 
     void prefix(Node root){
@@ -97,7 +74,7 @@ public class ExpressionTree {
         System.out.print(root.character);
     }
 
-    Node Expression(){
+    /*Node Expression(){
         
         Stack<Node> operand = new Stack<>();
         for(int i=0;i<input.length();i++){
@@ -126,10 +103,11 @@ public class ExpressionTree {
         temp=operand.pop();
         return temp;
     }
+    */
 
     public  void Interface() {
         Scanner s = new Scanner(System.in);
-        Node fix = Expression();  
+        Node fix = buildTree();  
         System.out.println("Expression Tree: ");
         traverse(fix);
         //modefiedTravers(fix);// ano to yung want ni aira kaso di ko magawa hahah
@@ -143,7 +121,73 @@ public class ExpressionTree {
         
         
     }
-    
+
+    public Node buildTree(){
+        pemdas();
+        for(int i=0;i<input.length();i++){
+            if(input.charAt(i)=='('){
+               ch.add(input.charAt(i));
+            }
+            else if(Character.isAlphabetic(input.charAt(i))){
+                temp= new Node(input.charAt(i));
+                iN.add(temp);
+            }
+            else if(pemdas[input.charAt(i)]>0){
+                while(check(i)){
+                    temp = new Node(ch.peek());
+                    ch.pop();
+     
+                    
+                    right = iN.peek();
+                    iN.pop();
+     
+                    
+                    left = iN.peek();
+                    iN.pop();
+     
+                   
+                    temp.left = left;
+                    temp.right = right;
+     
+                  
+                    iN.add(temp);
+                }
+              ch.push(input.charAt(i));
+            }
+            else if(input.charAt(i) == ')'){
+                while (!ch.isEmpty() && ch.peek() != '(')
+                {
+                    temp = new Node(ch.peek());
+                    ch.pop();
+
+                    right = iN.peek();
+                    iN.pop();
+                    left = iN.peek();
+                    iN.pop();
+
+                    temp.left = left;
+                    temp.right = right;
+
+                    iN.add(temp);
+                }
+            ch.pop();
+            }
+        }
+        temp = iN.peek();
+        return temp;
+
+    }
+    public boolean check(int i){
+        if(!ch.isEmpty()&&ch.peek()!='('){
+            if((input.charAt(i) != '^' && pemdas[ch.peek()] 
+            >= pemdas[input.charAt(i)])|| 
+            (input.charAt(i) == '^'&& pemdas[ch.peek()] > pemdas[input.charAt(i)])){
+                return true;
+            }
+           
+        }
+        return false;
+    }
 }
 
    

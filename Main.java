@@ -16,14 +16,17 @@ public class Main{
     public static void Testset(){
         //eto muna goal natin magawa sa postfix yung output
         
-        String[] arr={"ABC*D/+","123*4/+"};
+        String[] arr={"((a^b^(c/d/e-f)^(x*y-m*n)))","((1+4-3+5))"};
         for(int i=0;i<arr.length;i++){
             String input=arr[i];
             ExpressionTree et = new ExpressionTree(input);
-            
             et.Interface();
             System.out.println();
+            
+            
         }
        
     }
+    
+    
 }
