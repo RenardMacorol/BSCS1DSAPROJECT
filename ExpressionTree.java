@@ -30,8 +30,6 @@ public class ExpressionTree {
         this.input=input;
         
     }
-
-    
     //check if is operator
     boolean isOperator(char op){
         if(op=='^'||op=='*'||op=='/'||op=='+'||op=='-' ){
@@ -88,6 +86,7 @@ public class ExpressionTree {
         prefix(root.left);
         prefix(root.right);
     }
+    
     void postfix(Node root){
         if(root==null){
             return;
@@ -97,7 +96,7 @@ public class ExpressionTree {
         postfix(root.right);
         System.out.print(root.character);
     }
-    
+
     Node Expression(){
         
         Stack<Node> operand = new Stack<>();
@@ -128,23 +127,8 @@ public class ExpressionTree {
         return temp;
     }
 
-    
-
-    public boolean checkInput(String input){
-        if(!isOperator(input.charAt(0))&&isOperator(input.charAt(1))){
-            return false;
-        }
-        return true;
-    }
-
-
-    
     public  void Interface() {
         Scanner s = new Scanner(System.in);
-        if(!checkInput(input)){
-            System.out.println("Infix");
-        }
-        
         Node fix = Expression();  
         System.out.println("Expression Tree: ");
         traverse(fix);
@@ -159,6 +143,7 @@ public class ExpressionTree {
         
         
     }
+    
 }
 
    
