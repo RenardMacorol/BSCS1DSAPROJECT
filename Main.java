@@ -15,8 +15,9 @@ public class Main{
     }
     public static void Testset(){
         //eto muna goal natin magawa sa postfix yung output
+        //"((a^b^(c/d/e-f)^(x*y-m*n)))" eto yung gumana
         
-        String[] arr={"((a^b^(c/d/e-f)^(x*y-m*n)))","((1+4-3+5))"};
+        String[] arr={"(A+B*C/D)"};
         for(int i=0;i<arr.length;i++){
             String input=arr[i];
             ExpressionTree et = new ExpressionTree(input);
