@@ -72,43 +72,36 @@ public class ExpressionTree {
         System.out.print(root.character);
     }
 
-    public Object evaluate(Node root) {
+    public double evaluate(Node root) {
         if (root == null) {
-            return null;
+            return 0;
         }
-
+        
+        // If the node is a leaf node (operand), return its value as a double
         if (root.left == null && root.right == null) {
-            return Character.toString(root.character); 
+            return Double.parseDouble(Character.toString(root.character));
         }
-
-        Object leftVal = evaluate(root.left);
-        Object rightVal = evaluate(root.right);
-
-        if (leftVal instanceof Integer && rightVal instanceof Integer) {
-            int leftIntVal = (int) leftVal;
-            int rightIntVal = (int) rightVal;
-
-            switch (root.character) {
-                case '+':
-                    return leftIntVal + rightIntVal;
-                case '-':
-                    return leftIntVal - rightIntVal;
-                case '*':
-                    return leftIntVal * rightIntVal;
-                case '/':
-                    return leftIntVal / rightIntVal;
-                case '^':
-                    return (int) Math.pow(leftIntVal, rightIntVal);
-                default:
-                    return null;
-            }
-        } else {
-            String leftStrVal = leftVal.toString();
-            String rightStrVal = rightVal.toString();
-            return leftStrVal + root.character + rightStrVal;
+        
+        // Recursively evaluate the left and right subtrees
+        double leftValue = evaluate(root.left);
+        double rightValue = evaluate(root.right);
+        
+        // Perform the corresponding arithmetic operation based on the operator
+        switch (root.character) {
+            case '+':
+                return leftValue + rightValue;
+            case '-':
+                return leftValue - rightValue;
+            case '*':
+                return leftValue * rightValue;
+            case '/':
+                return leftValue / rightValue;
+            case '^':
+                return Math.pow(leftValue, rightValue);
+            default:
+                return 0;
         }
     }
-
 
     /*Node Expression(){
         
@@ -154,7 +147,8 @@ public class ExpressionTree {
         System.out.print("Postfix: ");
         postfix(fix);
         System.out.println();
-        System.out.println("Tree Value+ "+evaluate(fix,fix.character));
+        System.out.print("Tree Value: ");
+        System.out.println(evaluate(fix));
         
         
     }
