@@ -54,9 +54,6 @@ public class ExpressionTree {
         return 0;
     }
   
-       
-    
-
     void traverse(Node root){
         if(root==null){
             return;
@@ -65,6 +62,7 @@ public class ExpressionTree {
         System.out.print(root.character);
         traverse(root.right);
     }
+
     void modefiedTravers(Node root){
         if(root==null){
             return;
@@ -81,6 +79,7 @@ public class ExpressionTree {
         traverse(root.right);
         }
     }
+
     void prefix(Node root){
         if(root==null){
             return;
@@ -98,6 +97,7 @@ public class ExpressionTree {
         postfix(root.right);
         System.out.print(root.character);
     }
+    
     Node Expression(){
         
         Stack<Node> operand = new Stack<>();
