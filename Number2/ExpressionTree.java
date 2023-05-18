@@ -23,8 +23,6 @@ class Node{
 public class ExpressionTree {
     
     String input;
-    int decision=0;
-    char data;
     Node temp,right,left;
     Stack<Node> iN = new Stack<>();
     Stack<Character> ch = new Stack<>();
@@ -104,36 +102,7 @@ public class ExpressionTree {
         }
     }
 
-    /*Node Expression(){
-        
-        Stack<Node> operand = new Stack<>();
-        for(int i=0;i<input.length();i++){
-            if(input.charAt(i)=='('|| input.charAt(i)==')'){
-                //temp=null;
-           
-            }
-            if(!isOperator(input.charAt(i))){
-                temp=new Node(input.charAt(i));
-                operand.push(temp);
-            }
-            else{
-                //operator push 
-                temp= new Node(input.charAt(i));
-
-                right=operand.pop();
-                left=operand.pop();
-
-                temp.left=left;
-                temp.right=right;
-
-                operand.push(temp);
-            }
-
-        }
-        temp=operand.pop();
-        return temp;
-    }
-    */
+   
 
     public  void Interface() {
         Scanner s = new Scanner(System.in);
@@ -147,10 +116,21 @@ public class ExpressionTree {
         System.out.println();
         System.out.print("Postfix: ");
         postfix(fix);
+        System.out.println();
         changeVariable();
+        Node newTree = buildTree();
+        traverse(fix);
+        //modefiedTravers(fix);// ano to yung want ni aira kaso di ko magawa hahah
+        System.out.println();
+        System.out.print("Prefix: ");
+        prefix(newTree);
+        System.out.println();
+        System.out.print("Postfix: ");
+        postfix(newTree);
         System.out.println();
         System.out.print("Tree Value: ");
-        System.out.println(evaluate(fix));
+        System.out.println(evaluate(newTree));
+
        
       
 
@@ -225,17 +205,19 @@ public class ExpressionTree {
         return false;
     }
 
-    public String changeVariable(){
+    public void changeVariable(){
         Scanner s = new Scanner(System.in);
+        String newInput=input;
         for(int i=0;i<input.length();i++){
-            if(Character.isLetterOrDigit(input.charAt(i))||Character.isAlphabetic(i)){
+            if(Character.isAlphabetic(input.charAt(i))||Character.isDigit(i)){
                 char newchar;
                 System.out.println("Enter the new Variable for "+input.charAt(i)+"x");
                 newchar=s.next().charAt(0);
-                input=input.substring(0, i)+ newchar+ input.substring(i+1);
+                newInput=input.substring(0, i)+ newchar+ input.substring(i+1);
             }
         }
-        return input;
+        this.input=newInput;
+        
     }
     
 
