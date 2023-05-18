@@ -1,3 +1,4 @@
+package Number2;
 import java.util.*;
 
 public class Main{
@@ -16,11 +17,12 @@ public class Main{
     public static void Testset(){
         //eto muna goal natin magawa sa postfix yung output
         //"((a^b^(c/d/e-f)^(x*y-m*n)))" eto yung gumana
-        //Normal test set at change variable test set "(A+B*C/D)""
+        //"((5^2^(8/12/8-2)^(3*6-9*1)))"
+        //Normal test set at change variable test set "(A+B*C/D)"
         //evaluate test set "(3+4*5/1)"
         //testing "unli wings"
         
-        String[] arr={"((5^2^(8/12/8-2)^(3*6-9*1)))"};
+        String[] arr={"(3+4*5/1)","(A+B*C/D)"};
         for(int i=0;i<arr.length;i++){
             String input=arr[i];
             ExpressionTree et = new ExpressionTree(input);

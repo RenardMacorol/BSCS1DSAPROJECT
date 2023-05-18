@@ -1,3 +1,4 @@
+package Number2;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -146,9 +147,13 @@ public class ExpressionTree {
         System.out.println();
         System.out.print("Postfix: ");
         postfix(fix);
+        changeVariable();
         System.out.println();
         System.out.print("Tree Value: ");
         System.out.println(evaluate(fix));
+       
+      
+
         
         
     }
@@ -218,6 +223,19 @@ public class ExpressionTree {
            
         }
         return false;
+    }
+
+    public String changeVariable(){
+        Scanner s = new Scanner(System.in);
+        for(int i=0;i<input.length();i++){
+            if(Character.isLetterOrDigit(input.charAt(i))||Character.isAlphabetic(i)){
+                char newchar;
+                System.out.println("Enter the new Variable for "+input.charAt(i)+"x");
+                newchar=s.next().charAt(0);
+                input=input.substring(0, i)+ newchar+ input.substring(i+1);
+            }
+        }
+        return input;
     }
     
 
