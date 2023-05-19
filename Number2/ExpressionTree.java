@@ -119,8 +119,7 @@ public class ExpressionTree {
         System.out.println();
         changeVariable();
         Node newTree = buildTree();
-        traverse(fix);
-        //modefiedTravers(fix);// ano to yung want ni aira kaso di ko magawa hahah
+        traverse(newTree);
         System.out.println();
         System.out.print("Prefix: ");
         prefix(newTree);
@@ -131,10 +130,6 @@ public class ExpressionTree {
         System.out.print("Tree Value: ");
         System.out.println(evaluate(newTree));
 
-       
-      
-
-        
         
     }
 
@@ -207,16 +202,15 @@ public class ExpressionTree {
 
     public void changeVariable(){
         Scanner s = new Scanner(System.in);
-        String newInput=input;
+        String newInput;
         for(int i=0;i<input.length();i++){
-            if(Character.isAlphabetic(input.charAt(i))||Character.isDigit(i)){
+            if(Character.isDigit(input.charAt(i))||Character.isAlphabetic(input.charAt(i))){
                 char newchar;
                 System.out.println("Enter the new Variable for "+input.charAt(i)+"x");
                 newchar=s.next().charAt(0);
-                newInput=input.substring(0, i)+ newchar+ input.substring(i+1);
+                input=input.substring(0, i)+ newchar+ input.substring(i+1);
             }
         }
-        this.input=newInput;
         
     }
     
