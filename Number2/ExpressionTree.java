@@ -12,13 +12,7 @@ class Node{
     }
    
 }
-/*TODO reffeer on this message chariz hahaha
- * 1.Gumagwa ng Postfix and Infix changer//Done na ata to
- * eto nlang
  
- * 2.Expression changer 
- * 3. Evaulate the binary 1+2+3=5 ganyan
- * */
 
 public class ExpressionTree {
     
@@ -202,7 +196,7 @@ public class ExpressionTree {
 
     public void changeVariable(){
         Scanner s = new Scanner(System.in);
-        String newInput;
+       
         for(int i=0;i<input.length();i++){
             if(Character.isDigit(input.charAt(i))||Character.isAlphabetic(input.charAt(i))){
                 char newchar;
