@@ -26,7 +26,7 @@ public class Main {
 			if (proceed.equalsIgnoreCase("yes")) {
 				displayOptionMenu(s);
 			} else {
-				System.out.println("Invalid");
+				System.out.println("Invalid!");
 			}
 		}
 		s.close();
@@ -66,7 +66,7 @@ public class Main {
 			break;
 		case 3:
 			// fibonacci
-			System.out.print("Enter the limit for the series: ");
+			System.out.print("Enter the limit for the fibonacci series: ");
 			input = s.nextInt();
 			Series.createSeries(input);
 			System.out.println();
