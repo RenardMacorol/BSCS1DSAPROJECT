@@ -9,7 +9,7 @@ public class Main{
         String input =s.nextLine();
         ExpressionTree tr = new ExpressionTree(input);
         tr.Interface();
-        
+        s.close();
     }
    
 }
