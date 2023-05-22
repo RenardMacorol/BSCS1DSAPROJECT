@@ -27,15 +27,52 @@ public class ExpressionTree {
         this.input=input;
     }
 
-    //Utility
+    //main interface
+    public  void Interface() {
+        Scanner s = new Scanner(System.in);
+        String proceed="yes";
+        while(!proceed.equalsIgnoreCase("no")){
+            System.out.println("Want to change variables?");
+            proceed=s.nextLine();
+            if(proceed.equalsIgnoreCase("yes")){
+                changeVariable();
+            }
+        }
+       
+        Node fix = buildTree();  
+        System.out.println("Expression Tree: ");
+        inorder(fix);
+        System.out.println();
+        System.out.print("Prefix: ");
+        prefix(fix);
+        System.out.println();
+        System.out.print("Postfix: ");
+        postfix(fix);
+        System.out.println();
+        System.out.println();
+        System.out.print("Tree Value: ");
+        System.out.println(evaluate(fix));
+    }
+
+    //Utilities
     void pemdas(){
         pemdas['+'] = pemdas['-'] = 1;
         pemdas['/'] = pemdas['*'] = 2;
         pemdas['^'] = 3;
         pemdas[')'] = 0;
     }
+    public boolean check(int i){
+        if(!ch.isEmpty()&&ch.peek()!='('){
+            if((input.charAt(i) != '^' && pemdas[ch.peek()] 
+            >= pemdas[input.charAt(i)])|| 
+            (input.charAt(i) == '^'&& pemdas[ch.peek()] > pemdas[input.charAt(i)])){
+                return true;
+            }
+           
+        }
+        return false;
+    }
 
-    
     void inorder(Node root){
         if(root==null){
             return;
@@ -64,68 +101,8 @@ public class ExpressionTree {
         System.out.print(root.character);
     }
 
-    public double evaluate(Node root) {
-        if (root == null) {
-            return 0;
-        }
-    
-        if (root.left == null && root.right == null) {
-            return Double.parseDouble(Character.toString(root.character));
-        }
-    
-        double leftValue = evaluate(root.left);
-        double rightValue = evaluate(root.right);
-    
-        switch (root.character) {
-            case '+':
-                return leftValue + rightValue;
-            case '-':
-                return leftValue - rightValue;
-            case '*':
-                return leftValue * rightValue;
-            case '/':
-                return leftValue / rightValue;
-            case '^':
-                return Math.pow(leftValue, rightValue);
-            default:
-                return 0;
-        }
-    }
-    
 
-   
-
-    public  void Interface() {
-        Scanner s = new Scanner(System.in);
-        String proceed="yes";
-        while(!proceed.equalsIgnoreCase("no")){
-            System.out.println("Want to change variables?");
-            proceed=s.nextLine();
-            if(proceed.equalsIgnoreCase("yes")){
-                changeVariable();
-            }
-        }
-       
-       
-
-        Node fix = buildTree();  
-        System.out.println("Expression Tree: ");
-        inorder(fix);
-        System.out.println();
-        System.out.print("Prefix: ");
-        prefix(fix);
-        System.out.println();
-        System.out.print("Postfix: ");
-        postfix(fix);
-        System.out.println();
-        System.out.println();
-        System.out.print("Tree Value: ");
-        System.out.println(evaluate(fix));
-        
-
-        
-    }
-    //Process.java
+    //Process
     public Node buildTree(){
         pemdas();
         for(int i=0;i<input.length();i++){
@@ -182,20 +159,6 @@ public class ExpressionTree {
 
     }
 
-    //Utility.java
-    public boolean check(int i){
-        if(!ch.isEmpty()&&ch.peek()!='('){
-            if((input.charAt(i) != '^' && pemdas[ch.peek()] 
-            >= pemdas[input.charAt(i)])|| 
-            (input.charAt(i) == '^'&& pemdas[ch.peek()] > pemdas[input.charAt(i)])){
-                return true;
-            }
-           
-        }
-        return false;
-    }
-
-    //Process.java
     public void changeVariable(){
         
         for(int i=0;i<input.length();i++){
@@ -208,9 +171,34 @@ public class ExpressionTree {
         }
         
     }
+
+    public double evaluate(Node root) {
+        if (root == null) {
+            return 0;
+        }
     
-
-
+        if (root.left == null && root.right == null) {
+            return Double.parseDouble(Character.toString(root.character));
+        }
+    
+        double leftValue = evaluate(root.left);
+        double rightValue = evaluate(root.right);
+    
+        switch (root.character) {
+            case '+':
+                return leftValue + rightValue;
+            case '-':
+                return leftValue - rightValue;
+            case '*':
+                return leftValue * rightValue;
+            case '/':
+                return leftValue / rightValue;
+            case '^':
+                return Math.pow(leftValue, rightValue);
+            default:
+                return 0;
+        }
+    }
 
 }
 
