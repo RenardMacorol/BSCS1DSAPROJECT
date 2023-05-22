@@ -2,7 +2,7 @@ package Number1.project1.src;
 
 
 public class CompareHeight {
-    public static void compare(int person1, int person2, int person3) {
+	public static void compare(int person1, int person2, int person3) {
 		if (person1 > person2 && person1 > person3) {
 			System.out.println("The first person is taller");
 		} else if (person2 > person1 && person2 > person3) {
@@ -10,11 +10,11 @@ public class CompareHeight {
 		} else if (person3 > person1 && person3 > person2) {
 			System.out.println("The third person is taller");
 		} else if (person1 == person2 && person1 != person3) {
-			System.out.println("The first and second person have the same height");
+			System.out.println("The first and second person has the same height");
 		} else if (person2 == person3 && person2 != person1) {
-			System.out.println("The second and third person have the same height");
+			System.out.println("The second and third person has the same height");
 		} else if (person3 == person1 && person3 != person2) {
-			System.out.println("The first and third person have the same height");
+			System.out.println("The first and third person has the same height");
 		} else {
 			System.out.println("The three persons are the same height");
 		}
