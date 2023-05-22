@@ -21,8 +21,7 @@ public class ExpressionTree {
     Stack<Node> iN = new Stack<>();
     Stack<Character> ch = new Stack<>();
     int[] pemdas = new int[100];
-       
-    
+    Scanner s = new Scanner(System.in);
    
     ExpressionTree(String input){
         //contructor need to refactorize this
@@ -30,6 +29,8 @@ public class ExpressionTree {
        
         
     }
+
+    //Utility
     void pemdas(){
         pemdas['+'] = pemdas['-'] = 1;
         pemdas['/'] = pemdas['*'] = 2;
@@ -37,13 +38,14 @@ public class ExpressionTree {
         pemdas[')'] = 0;
     }
 
-    void traverse(Node root){
+    
+    void inorder(Node root){
         if(root==null){
             return;
         }
-        traverse(root.left);
+        inorder(root.left);
         System.out.print(root.character);
-        traverse(root.right);
+        inorder(root.right);
     }
 
     void prefix(Node root){
@@ -98,10 +100,14 @@ public class ExpressionTree {
 
     public  void Interface() {
         Scanner s = new Scanner(System.in);
+        String proceed="yes";
+        System.out.println("Want to change variables?");
+        while(!proceed.equalsIgnoreCase("no")){
+            changeVariable();
+        }
         Node fix = buildTree();  
         System.out.println("Expression Tree: ");
-        traverse(fix);
-        //modefiedTravers(fix);// ano to yung want ni aira kaso di ko magawa hahah
+        inorder(fix);
         System.out.println();
         System.out.print("Prefix: ");
         prefix(fix);
@@ -109,22 +115,14 @@ public class ExpressionTree {
         System.out.print("Postfix: ");
         postfix(fix);
         System.out.println();
-        changeVariable();
-        Node newTree = buildTree();
-        traverse(newTree);
-        System.out.println();
-        System.out.print("Prefix: ");
-        prefix(newTree);
-        System.out.println();
-        System.out.print("Postfix: ");
-        postfix(newTree);
         System.out.println();
         System.out.print("Tree Value: ");
-        System.out.println(evaluate(newTree));
+        System.out.println(evaluate(fix));
+        
 
         
     }
-
+    //Process.java
     public Node buildTree(){
         pemdas();
         for(int i=0;i<input.length();i++){
@@ -180,6 +178,8 @@ public class ExpressionTree {
         return temp;
 
     }
+
+    //Utility.java
     public boolean check(int i){
         if(!ch.isEmpty()&&ch.peek()!='('){
             if((input.charAt(i) != '^' && pemdas[ch.peek()] 
@@ -192,9 +192,9 @@ public class ExpressionTree {
         return false;
     }
 
+    //Process.java
     public void changeVariable(){
-        Scanner s = new Scanner(System.in);
-       
+        
         for(int i=0;i<input.length();i++){
             if(Character.isDigit(input.charAt(i))||Character.isAlphabetic(input.charAt(i))){
                 char newchar;
