@@ -9,9 +9,7 @@ class Node{
         this.character=character;
         left=right=null;
     }
-   
 }
- 
 
 public class ExpressionTree {
     
@@ -19,11 +17,11 @@ public class ExpressionTree {
     Node temp,right,left;
     Stack<Node> iN = new Stack<>();
     Stack<Character> ch = new Stack<>();
-    int[] pemdas = new int[100];
     Scanner s = new Scanner(System.in);
+    int[] pemdas = new int[100];
+    
    
     ExpressionTree(String input){
-        //contructor need to refactorize this
         this.input=input;
     }
 
@@ -62,6 +60,7 @@ public class ExpressionTree {
         pemdas['^'] = 3;
         pemdas[')'] = 0;
     }
+
     public boolean check(int i){
         if(!ch.isEmpty()&&ch.peek()!='('){
             if((input.charAt(i) != '^' && pemdas[ch.peek()] 
@@ -73,7 +72,7 @@ public class ExpressionTree {
         }
         return false;
     }
-
+    //print nodes
     void inorder(Node root){
         if(root==null){
             return;
