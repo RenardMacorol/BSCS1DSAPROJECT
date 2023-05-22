@@ -26,8 +26,6 @@ public class ExpressionTree {
     ExpressionTree(String input){
         //contructor need to refactorize this
         this.input=input;
-       
-        
     }
 
     //Utility
@@ -101,10 +99,16 @@ public class ExpressionTree {
     public  void Interface() {
         Scanner s = new Scanner(System.in);
         String proceed="yes";
-        System.out.println("Want to change variables?");
         while(!proceed.equalsIgnoreCase("no")){
-            changeVariable();
+            System.out.println("Want to change variables?");
+            proceed=s.nextLine();
+            if(proceed.equalsIgnoreCase("yes")){
+                changeVariable();
+            }
         }
+       
+       
+
         Node fix = buildTree();  
         System.out.println("Expression Tree: ");
         inorder(fix);
