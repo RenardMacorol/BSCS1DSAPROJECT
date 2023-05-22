@@ -9,7 +9,6 @@ class Node{
         this.character=character;
         left=right=null;
     }
-   
 }
 
 public class ExpressionTree {
@@ -61,6 +60,7 @@ public class ExpressionTree {
         pemdas['^'] = 3;
         pemdas[')'] = 0;
     }
+
     public boolean check(int i){
         if(!ch.isEmpty()&&ch.peek()!='('){
             if((input.charAt(i) != '^' && pemdas[ch.peek()] 
@@ -72,7 +72,7 @@ public class ExpressionTree {
         }
         return false;
     }
-
+    //print nodes
     void inorder(Node root){
         if(root==null){
             return;
