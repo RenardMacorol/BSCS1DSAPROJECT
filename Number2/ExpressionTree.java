@@ -1,6 +1,5 @@
 package Number2;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 class Node{
     char character;
