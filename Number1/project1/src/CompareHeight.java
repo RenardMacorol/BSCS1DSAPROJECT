@@ -16,6 +16,8 @@ public class CompareHeight {
 		}else if(person1==person3&&person2==person3){
 			System.out.println("The 3 person are the same heights");
 		}
+
+
 		
     }
 }
