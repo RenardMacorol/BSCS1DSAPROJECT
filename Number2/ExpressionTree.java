@@ -11,7 +11,6 @@ class Node{
     }
    
 }
- 
 
 public class ExpressionTree {
     
@@ -19,8 +18,9 @@ public class ExpressionTree {
     Node temp,right,left;
     Stack<Node> iN = new Stack<>();
     Stack<Character> ch = new Stack<>();
-    int[] pemdas = new int[100];
     Scanner s = new Scanner(System.in);
+    int[] pemdas = new int[100];
+    
    
     ExpressionTree(String input){
         this.input=input;
