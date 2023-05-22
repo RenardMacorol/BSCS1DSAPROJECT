@@ -69,17 +69,14 @@ public class ExpressionTree {
         if (root == null) {
             return 0;
         }
-        
-        // If the node is a leaf node (operand), return its value as a double
+    
         if (root.left == null && root.right == null) {
-            return Double.parseDouble(Character.toString(root.character));
+            return Double.valueOf(root.character.toString());
         }
-        
-        // Recursively evaluate the left and right subtrees
+    
         double leftValue = evaluate(root.left);
         double rightValue = evaluate(root.right);
-        
-        // Perform the corresponding arithmetic operation based on the operator
+    
         switch (root.character) {
             case '+':
                 return leftValue + rightValue;
@@ -95,6 +92,7 @@ public class ExpressionTree {
                 return 0;
         }
     }
+    
 
    
 
