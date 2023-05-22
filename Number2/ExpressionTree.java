@@ -23,7 +23,6 @@ public class ExpressionTree {
     Scanner s = new Scanner(System.in);
    
     ExpressionTree(String input){
-        //contructor need to refactorize this
         this.input=input;
     }
 
