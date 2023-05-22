@@ -52,6 +52,7 @@ public class ExpressionTree {
         System.out.println();
         System.out.print("Tree Value: ");
         System.out.println(evaluate(fix));
+        s.close();
     }
 
     //Utilities
