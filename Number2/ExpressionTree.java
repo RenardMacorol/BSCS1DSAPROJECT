@@ -71,7 +71,7 @@ public class ExpressionTree {
         }
     
         if (root.left == null && root.right == null) {
-            return Double.valueOf(root.character.toString());
+            return Double.parseDouble(Character.toString(root.character));
         }
     
         double leftValue = evaluate(root.left);
