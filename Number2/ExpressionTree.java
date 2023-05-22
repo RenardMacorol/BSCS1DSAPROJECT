@@ -27,7 +27,6 @@ public class ExpressionTree {
 
     //main interface
     public  void Interface() {
-        Scanner s = new Scanner(System.in);
         String proceed="yes";
         while(!proceed.equalsIgnoreCase("no")){
             System.out.println("Want to change variables?");
@@ -156,7 +155,6 @@ public class ExpressionTree {
         }
         temp = iN.peek();
         return temp;
-
     }
 
     public void changeVariable(){
