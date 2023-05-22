@@ -30,27 +30,21 @@ public class ExpressionTree {
         Scanner s = new Scanner(System.in);
         String proceed="yes";
         while(!proceed.equalsIgnoreCase("no")){
-            System.out.print("Would you like to change the variables [yes or no]: ");
+            System.out.println("Want to change variables?");
             proceed=s.nextLine();
-            System.out.println();
             if(proceed.equalsIgnoreCase("yes")){
                 changeVariable();
             }
-            if(proceed.equalsIgnoreCase("no")){
-                //empty for no
-            }
-            else System.out.println("Invalid!");
-            System.out.println();
         }
        
         Node fix = buildTree();  
         System.out.println("Expression Tree: ");
         inorder(fix);
         System.out.println();
-        System.out.print("Prefix Expression: ");
+        System.out.print("Prefix: ");
         prefix(fix);
         System.out.println();
-        System.out.print("Postfix Expression: ");
+        System.out.print("Postfix: ");
         postfix(fix);
         System.out.println();
         System.out.println();
@@ -170,7 +164,7 @@ public class ExpressionTree {
         for(int i=0;i<input.length();i++){
             if(Character.isDigit(input.charAt(i))||Character.isAlphabetic(input.charAt(i))){
                 char newchar;
-                System.out.print("Enter new variable for "+input.charAt(i)+"x: ");
+                System.out.println("Enter the new Variable for "+input.charAt(i)+"x");
                 newchar=s.next().charAt(0);
                 input=input.substring(0, i)+ newchar+ input.substring(i+1);
             }
