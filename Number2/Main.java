@@ -7,8 +7,8 @@ public class Main{
         Scanner s = new Scanner(System.in);
         System.out.println("Enter the Input");
         String input =s.nextLine();
-        ExpressionTree et = new ExpressionTree(input);
-        et.Interface();
+        ExpressionTree tr = new ExpressionTree(input);
+        tr.Interface();
         
     }
    
